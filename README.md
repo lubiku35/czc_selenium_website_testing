@@ -17,6 +17,9 @@ Welcome to my Selenium Website Testing project! In this endeavor, I have underta
 
 Throughout this project, I have conducted a comprehensive range of tests, starting from basic ones like accepting cookies and verifying the page title, and progressing towards more sophisticated scenarios such as user registration, login functionality, and adding products to the cart. By covering various aspects of the website, I aim to identify and address any potential issues, ensuring a seamless and satisfying user experience.
 
+> Also as a little bonus I tried to test the subpage of this page which works as a blog at url [https://www.czc.cz/geek](https://www.czc.cz/geek) where there was a search form which was an interesting object for testing | see more in [Blog Search Values Test](#blog-search-values-test)
+
+
 <br>
 
 # Navigation
@@ -41,7 +44,10 @@ Throughout this project, I have conducted a comprehensive range of tests, starti
         - [Parameterized Search Test](#parameterized-search-test)
         - [Shopping Cart Test](#shopping-cart-test)
         - [Subscribe to Action Offers Test](#subscribe-to-action-offers-test)
-    - [Main Test](#main-test)
+        - [Subscribe to Action Offers Wrong Values Test](#subscribe-to-action-offers-wrong-values-test)
+    - [Registered Customer Test](#registered-customer-test)
+    - [Not Registered Customer Test](#not-registered-customer-test)
+    - [Blog Search Values Test](#blog-search-values-test)
 
 <br>
 
@@ -92,6 +98,7 @@ Users can add products to their shopping cart and proceed to checkout when ready
 
 The application includes a discussion platform where users can engage with others, ask questions, share experiences, and provide feedback or reviews on products. This feature promotes user interaction and helps users make informed purchase decisions.
 
+
 <br>
 
 # Project Tests Prioritization
@@ -129,7 +136,7 @@ This test case verifies the functionality of browsing through various elements o
 1. Navigate to the website URL.
 2. Accept cookies by clicking on the "Accept Cookies" button.
 3. Click on the main page link to ensure you start from the homepage.
-4. **Parameterized Test**: Iterate over a stream of elements.
+4. Parameterized Test: Iterate over a stream of elements.
 5. For each element, click on it to navigate to the corresponding page.
 6. After each iteration, return to the main page to reset the state for the next iteration.
 
@@ -203,7 +210,7 @@ This test ensures that the shopping cart functionality is working correctly by a
 
 ### Subscribe to Action Offers Test
 
-The SubscribeToActionOffersTest is a parameterized test case that verifies the functionality of subscribing to action offers on the website.
+The SubscribeToActionOffersTest is a parameterized test case that verifies the functionality of subscribing to action offers on the website with accepted email values.
 
 1. Set up the test environment by opening the website, accepting cookies, and locating the subscribe input field and button.
 2. For each parameterized input value (email address) in the CSV source, perform the following steps:
@@ -211,7 +218,18 @@ The SubscribeToActionOffersTest is a parameterized test case that verifies the f
 - Click on the subscribe button.
 3. After each test iteration, click on the main page link to navigate back to the main page.
 
-## Main Test
+### Subscribe to Action Offers Wrong Values Test
+
+The SubscribeToActionOffersWrongValuesTest is a parameterized test case that verifies the functionality of subscribing to action offers on the website with not accepted email values.
+
+1. Set up the test environment by opening the website, accepting cookies, and locating the subscribe input field and button.
+2. For each parameterized input value (email address) in the CSV source, perform the following steps:
+- Set the value of the subscribe input field to the current email value.
+- Click on the subscribe button.
+3. After each test iteration, page throws an error about wrong email address, then clear the already set value and back to step 2.
+
+
+## Registered Customer Test
 
 The MainTest represents a comprehensive test scenario that simulates a user's interaction with the website. Here's a description of the test scenario:
 
@@ -267,7 +285,7 @@ The user performs the following steps:
 - The user removes the current item from the shopping cart.
 - The user clicks on the "Navigate Back to the Shop" button to return to the main page.
 
-9. `Make Random Choice from Selected Items and Add It to the Wishlist`:
+9. **Make Random Choice from Selected Items and Add It to the Wishlist**:
 
 - The user makes a random choice from the selected items carousel and adds it to the wishlist.
 - The user clicks on the main page link to navigate back to the main page.
@@ -279,3 +297,7 @@ The user performs the following steps:
 - The user clicks on the main page link to navigate back to the main page.
 
 > This comprehensive test scenario covers various user actions on the website, including registration, login, cart management, wishlist management, and product search.
+
+## Not Registered Customer Test
+
+## Blog Search Values Test
