@@ -9,6 +9,10 @@
 >
 > **Project Name** | CZC - Selenium Website Testing 
 
+//TODO
+
+Project is also available on my personal Gitlab: 
+
 <br>
 
 # Project Introduction
@@ -17,37 +21,48 @@ Welcome to my Selenium Website Testing project! In this endeavor, I have underta
 
 Throughout this project, I have conducted a comprehensive range of tests, starting from basic ones like accepting cookies and verifying the page title, and progressing towards more sophisticated scenarios such as user registration, login functionality, and adding products to the cart. By covering various aspects of the website, I aim to identify and address any potential issues, ensuring a seamless and satisfying user experience.
 
-> Also as a little bonus I tried to test the subpage of this page which works as a blog at url [https://www.czc.cz/geek](https://www.czc.cz/geek) where there was a search form which was an interesting object for testing | see more in [Blog Search Values Test](#blog-search-values-test)
-
+> As a little bonus, I also tried to test a subpage of this website, which operates as a blog at the url [https://www.czc.cz/geek](https://www.czc.cz/geek), subpage 'geek' contains a search form to find articles which was another attractive object to test | see more in [Blog Search Values Test](#blog-search-values-test)
 
 <br>
 
 # Navigation
 
+- [CZC - Selenium Website Testing | Semester Project](#czc---selenium-website-testing--semester-project)
+- [Project Introduction](#project-introduction)
+- [Navigation](#navigation)
 - [Selected Technologies](#selected-technologies)
-- [Application Functionalities](#application-functionalities)  
-    - [Product Catalog](#product-catalog)  
-    - [Registration and Login](#registration-and-login)  
-    - [Favorites](#favorites)  
-    - [Wishlist](#wishlist)  
-    - [Shopping Cart and Checkout](#shopping-cart-and-checkout)  
-    - [Discussions and Reviews](#discussions-and-reviews)
-- [Tests Prioritization](#tests-prioritization)
-- [Tests Overview](#tests-overview)  
-    - [Demo Tests](#demo-tests)
-        - [Accept Cookies Test](#accept-cookies-test)
-        - [Browse Through Website Test](#browse-through-website-test)
-        - [Create New Account Test](#create-new-account-test)
-        - [Login Test](#login-test)
-        - [Page Title Test](#page-title-test)
-        - [Search Test](#search-test)
-        - [Parameterized Search Test](#parameterized-search-test)
-        - [Shopping Cart Test](#shopping-cart-test)
-        - [Subscribe to Action Offers Test](#subscribe-to-action-offers-test)
-        - [Subscribe to Action Offers Wrong Values Test](#subscribe-to-action-offers-wrong-values-test)
-    - [Registered Customer Test](#registered-customer-test)
-    - [Not Registered Customer Test](#not-registered-customer-test)
-    - [Blog Search Values Test](#blog-search-values-test)
+- [Application Functionalities](#application-functionalities)
+  - [Product Catalog](#product-catalog)
+  - [Registration and Login](#registration-and-login)
+  - [Favorites](#favorites)
+  - [Wishlist](#wishlist)
+  - [Shopping Cart and Checkout](#shopping-cart-and-checkout)
+  - [Discussions and Reviews](#discussions-and-reviews)
+- [Project Tests Prioritization](#project-tests-prioritization)
+- [Processes, Tests and Requirements](#processes-tests-and-requirements)
+- [Differentiation of Allowed Features for Various Users](#differentiation-of-allowed-features-for-various-users)
+- [Tests Overview](#tests-overview)
+  - [Demo Tests](#demo-tests)
+    - [Accept Cookies Test](#accept-cookies-test)
+    - [Browse Through Website Test](#browse-through-website-test)
+    - [Create New Account Test](#create-new-account-test)
+    - [Login Test](#login-test)
+    - [Page Title Test](#page-title-test)
+    - [Search Test](#search-test)
+    - [Parameterized Search Test](#parameterized-search-test)
+    - [Shopping Cart Test](#shopping-cart-test)
+    - [Subscribe to Action Offers Test](#subscribe-to-action-offers-test)
+    - [Subscribe to Action Offers Wrong Values Test](#subscribe-to-action-offers-wrong-values-test)
+    - [Footer Links Test](#footer-links-test)
+  - [Registered Customer Test](#registered-customer-test)
+    - [Test Diagram](#test-diagram)
+  - [Not Registered Customer Test](#not-registered-customer-test)
+    - [Test Diagram](#test-diagram-1)
+  - [Blog Search Values Test](#blog-search-values-test)
+    - [Test Diagram](#test-diagram-2)
+
+
+
 
 <br>
 
@@ -111,9 +126,43 @@ When comes to prioritizing tests for the web application, it's essential to focu
 | Low             | `Login and Registration`          |
 | Low             | `HomePage and Navigation`         |
 | Medium          | `Product Catalog`                 |
+| Medium          | `Blog Subpage`                    |
 | Medium          | `Favorites and Wishlist`          |
 | High            | `Add to Cart`                     |
 | High            | `Checkout Process`                |
+
+<br>
+
+# Processes, Tests and Requirements
+
+
+
+| **Process**           | **Test**                    | **Requirement**                                             |
+|-----------------------|-----------------------------|-------------------------------------------------------------|
+| Accept Cookies        | `AcceptCookiesTest`         | The user must be able to accept cookies in order to continue|
+| Website Navigation    | `BrowseThroughWebsiteTest`  | The user must be able to browse the web page without error limitations|
+| Registration of New User   | `CreateNewAccountTest`      | The user must be able to register with the correct data                   |
+| Login to Website      | `LoginTest`                 | The registered user must be able to log in correctly                   |
+| Correct Page Title    | `PageTitleTest`             | The system must return the correct web page title                  |
+| Search Through Website Single | `SearchTest`    | The user must be able to find a specific product with appropriate return value                   |
+| Search Through Website Parametrized | `ParametrizedSearchTest`               | The user must be able to search for various products with adequate return value                   |
+| Usage of Shopping Cart| `ShoppingCartTest`          | The user must be able to add a product to the shopping cart and then work with the shopping cart                   |
+| Subscribe to Action Offers | `SubscribeToActionOffersTest` / `SubscribeToActionOffersWrongValuesTest`     | The user must be able to subscribe to action offers with a correct email address|
+| Website Footer Navigation | `FooterLinksTest`          | The user must be able to click individually between the links in the footer section of the web page                  |
+
+> By combining these test cases, we can perform more sophisticated tests and ensure comprehensive coverage of the website's functionality and user experience.
+
+<br>
+
+# Differentiation of Allowed Features for Various Users
+
+| **Feature**                | **Registered User** | **Non-Registered User** |
+|----------------------------|-----------------|---------------------|
+| **Add to Wish List**       | Allowed         | Not Allowed         |
+| **Add to Favorite**        | Allowed         | Not Allowed         |
+| **Search**                 | Allowed         | Allowed             |
+| **Buy Items**              | Allowed         | Allowed             |
+| **Subscribe to Offers**    | Allowed         | Allowed             |
 
 <br>
 
@@ -121,17 +170,28 @@ When comes to prioritizing tests for the web application, it's essential to focu
 
 ## Demo Tests
 
+<br>
+
+---
+
 ### Accept Cookies Test
 
 This test case validates the functionality of accepting cookies on the website. It ensures that the user can successfully click on the "Accept Cookies" button to acknowledge and accept the use of cookies on the website.
 
+**Test Scenario**:
+
 1. Navigate to the website URL.
 2. Click on the "Accept Cookies" button.
 
+**Expected Result**: The user should be able to accept cookies and continue using the website without any issues.
+
+---
 
 ### Browse Through Website Test
 
 This test case verifies the functionality of browsing through various elements on the website. It uses parameterized testing to iterate over a set of elements and clicks on each element to navigate to the corresponding page.
+
+**Test Scenario**:
 
 1. Navigate to the website URL.
 2. Accept cookies by clicking on the "Accept Cookies" button.
@@ -140,9 +200,15 @@ This test case verifies the functionality of browsing through various elements o
 5. For each element, click on it to navigate to the corresponding page.
 6. After each iteration, return to the main page to reset the state for the next iteration.
 
+**Expected Result**: The user should be able to browse the web page without any errors or limitations and experience smooth navigation throughout the website.
+
+---
+
 ### Create New Account Test
 
 This test case verifies the functionality of creating a new account on the website.
+
+**Test Scenario**:
 
 1. Navigate to the website URL.
 2. Accept cookies by clicking on the "Accept Cookies" button.
@@ -151,9 +217,49 @@ This test case verifies the functionality of creating a new account on the websi
 5. Verify the visibility of all necessary components on the registration form.
 6. Verify if the "Register" button is visible.
 
+| Field       | Correct Data        | Wrong Data                 |
+|-------------|---------------------|----------------------------|
+| Email       | ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$ | empty field / not in match of regular expression              |
+| Phone       | +421 123 456 789       | empty field |
+| Name        | John                | empty field |
+| Surname     | Doe                 | empty field |
+| Nickname    | johndoe             | empty field |
+| Password    | P@ssw0rd            | empty field |
+| Street      | 123 Main St         | not valid address type (only numbers / only special characters) / empty field               |
+| City        | New York            | not valid city (only numbers / only special characters) / empty field|
+| ZipCode     | 10001               | not valid zipcode (only special characters) / empty field |
+
+Explanation of the regular expression for email address:
+
+> **^** asserts the start of the string.
+>
+> **[a-zA-Z0-9_.+-]+** matches one or more of the allowed characters in the email username part, which can include letters (both uppercase and lowercase), digits, underscore, dot, plus, and hyphen.
+>
+> **@** matches the literal "@" symbol.
+>
+> **[a-zA-Z0-9-]+** matches one or more of the allowed characters in the email domain name part, which can include letters (both uppercase and lowercase), digits, and hyphen.
+>
+> **\.** matches the literal dot (.) used to separate the domain name from the top-level domain.
+>
+> **[a-zA-Z0-9-.]+** matches one or more of the allowed characters in the email top-level domain part, which can include letters (both uppercase and lowercase), digits, hyphen, and dot.
+>
+> **$** asserts the end of the string.
+
+![register](uploads/4d60b29afe5650c51b74354462f76d97/register.png)
+
+---
+
+![table](uploads/ba5349b12df985e989151059a3171a2d/table.png)
+
+**Expected Result**: The user should be able to register with the correct data and successfully create a new account.
+
+---
+
 ### Login Test
 
 This test case verifies the functionality of the login process on the website.
+
+**Test Scenario**:
 
 1. Navigate to the website URL.
 2. Accept cookies by clicking on the "Accept Cookies" button.
@@ -162,18 +268,30 @@ This test case verifies the functionality of the login process on the website.
 5. Check if the labels for the username and password inputs are visible.
 6. Verify the visibility of the login button and the button to accept the login terms.
 
+**Expected Result**: The registered user should be able to log in correctly and access their account without any issues.
+
+---
+
 ### Page Title Test
 
 This test case checks the title of the webpage and verifies that it matches the expected title.
+
+**Test Scenario**:
 
 1. Navigate to the website URL.
 2. Retrieve the actual page title using Selenide's title() method.
 3. Compare the actual page title with the expected page title.
 4. Assert that the actual page title is equal to the expected page title.
 
+**Expected Result**: The system should return the correct web page title, which should match the expected title.
+
+---
+
 ### Search Test
 
 This test case searches for a specific value (in my case, "Iphone") on the website and verifies the search results. 
+
+**Test Scenario**:
 
 1. Accept cookies if necessary by clicking on the accept cookies button.
 2. Locate the search input element and set its value to the searched value ("Iphone").
@@ -183,10 +301,15 @@ This test case searches for a specific value (in my case, "Iphone") on the websi
 6. Retrieve the first three search results and store them in a list of SelenideElements.
 7. Iterate over the first three search results and verify that each result has a button to add the item to the shopping cart.
 
+**Expected Result**: The user should be able to find a specific product through the search feature, and the returned results should match the expected search criteria.
+
+---
 
 ### Parameterized Search Test
 
 This test case performs a search on the website using different search values. It uses parameterized testing, where the search values are provided through a CSV source.
+
+**Test Scenario**:
 
 1. Set up the test environment by opening the website and accepting cookies.
 2. Locate the search input element and set its value to the current search value.
@@ -196,9 +319,15 @@ This test case performs a search on the website using different search values. I
 6. Retrieve the first three search results and store them in a list of SelenideElements.
 7. Iterate over the first three search results and verify that each result has a button to add the item to the shopping cart.
 
+**Expected Result**: The user should be able to search for various products using different parameterized search queries, and the returned results should match the expected search criteria for each query.
+
+---
+
 ### Shopping Cart Test
 
 This test ensures that the shopping cart functionality is working correctly by adding items to the cart, navigating to the cart page, and performing necessary actions.
+
+**Test Scenario**:
 
 1. Set up the test environment by opening the website, accepting cookies, and locating the shopping cart button.
 2. Click on the shopping cart button.
@@ -208,9 +337,15 @@ This test ensures that the shopping cart functionality is working correctly by a
 6. Click on the shopping cart button again.
 7. Verify that the "Proceed to Checkout" button is visible.
 
+**Expected Result**: The user should be able to add a product to the shopping cart, view the shopping cart contents, and perform various actions on the shopping cart without any issues.
+
+---
+
 ### Subscribe to Action Offers Test
 
 The SubscribeToActionOffersTest is a parameterized test case that verifies the functionality of subscribing to action offers on the website with accepted email values.
+
+**Test Scenario**:
 
 1. Set up the test environment by opening the website, accepting cookies, and locating the subscribe input field and button.
 2. For each parameterized input value (email address) in the CSV source, perform the following steps:
@@ -218,9 +353,15 @@ The SubscribeToActionOffersTest is a parameterized test case that verifies the f
 - Click on the subscribe button.
 3. After each test iteration, click on the main page link to navigate back to the main page.
 
+**Expected Result**: The user should be able to subscribe to action offers using a correct email address and receive a confirmation message or email.
+
+---
+
 ### Subscribe to Action Offers Wrong Values Test
 
 The SubscribeToActionOffersWrongValuesTest is a parameterized test case that verifies the functionality of subscribing to action offers on the website with not accepted email values.
+
+**Test Scenario**:
 
 1. Set up the test environment by opening the website, accepting cookies, and locating the subscribe input field and button.
 2. For each parameterized input value (email address) in the CSV source, perform the following steps:
@@ -228,16 +369,36 @@ The SubscribeToActionOffersWrongValuesTest is a parameterized test case that ver
 - Click on the subscribe button.
 3. After each test iteration, page throws an error about wrong email address, then clear the already set value and back to step 2.
 
+---
+
+### Footer Links Test
+
+This test focuses on validating the functionality of multiple links in the footer navigation of a web page.
+
+The test performs the following checks for each link:
+
+- It locates the link element and ensures its visibility.
+- It clicks on the link.
+- It verifies the visibility of a specific element on the resulting page (e.g., a heading element).
+
+> Each link is individually tested, including links for "About Us," "About Mall Group," "Contact Form," "Shipping and Payment," "Complaints," "Stores," "ISIC," "Services," "Affiliate Program," and "Documents for Download."
+
+**Expected Result**: The user should be able to click on each link in the footer section and navigate to the intended page or perform the expected action without any issues.
+
+---
+
+<br>
 
 ## Registered Customer Test
 
-The MainTest represents a comprehensive test scenario that simulates a user's interaction with the website. Here's a description of the test scenario:
+The RegisteredCustomerTest represents a comprehensive test scenario that simulates a user's who is already a member of the website and his interaction with the website. Here's a description of the test scenario:
 
-> This test scenario simulates the user's journey on the website. 
+> This test scenario simulates the user's 'journey' on the website. 
 
 The user performs the following steps:
 
 1. **Accept Cookies** :
+
 - The user accepts the cookies by clicking on the "Accept" button.
 
 2. **Navigate to Create New Account** :
@@ -298,6 +459,74 @@ The user performs the following steps:
 
 > This comprehensive test scenario covers various user actions on the website, including registration, login, cart management, wishlist management, and product search.
 
+### Test Diagram
+
+![registeredCustomerTest](uploads/06dfb35350c045843e78fefeb5e0c678/registeredCustomerTest.png)
+
+
+<br>
+
+
 ## Not Registered Customer Test
 
+This test simulates the behavior of a not registered customer who has certain restrictions, such as the inability to add products to their wishlist or favorites.
+
+The user performs the following steps:
+
+1. **Accept Cookies** :
+
+- The user accepts the cookies by clicking on the "Accept" button.
+
+2. **Pefrorms Search Action on Website** :
+
+- Enter a search term 
+- Click the search button.
+- Verify that the search heading displays the searched value.
+- Locate the product tiles and select the first tile.
+- Click on the product link to view its details.
+
+3. **Demonstration - Add to Favourites** :
+
+- The user waits until the product details are all loaded
+- Tries to add corresponding product to his "favourites"
+- Website returns Error Message - 'Not registered...'
+- The user returns back to main page and then repeats step 2. with another search value
+
+### Test Diagram
+
+![notRegisteredCustomerTest](uploads/bdd37d2caf24b111609385cbbb67634d/notRegisteredCustomerTest.png)
+
+
+<br>
+
 ## Blog Search Values Test
+
+This test focuses on the functionality of searching for values on a website's blog subpage. It navigates to the blog subpage, performs multiple search operations with different values, and captures the results.
+
+1. **Open the website**: 
+
+- Launch the website under test and accept the cookie policy by clicking the "Accept Cookies" button
+
+2. **Navigate to the blog subpage**: 
+- Click on the blog subpage link to access the blog section of the website
+
+3. **Perform search operations**: 
+
+For each value provided in the test data : 
+
+- Enter the value in the search input field
+- Click the search button
+- Wait for the results to load
+
+4. **Capture results**:
+ 
+- Check if an alert element is displayed on the page. 
+- IFF TRUE: add the searched value to the list of wrong values ELSE: add it to the list of right values
+
+5 **Print test results**: 
+
+- After all search operations are completed, print the captured wrong values and right values for further analysis.
+
+### Test Diagram
+
+![blogSearchValues](uploads/df7d454751cb49126536f410ce1dedfc/blogSearchValues.png)
